@@ -8,6 +8,7 @@ const { pool } = require("./../utils/bd");
 const create = async () => (await pool()).collection("equipo").insertOne(obj);
 
 //Función get find({conditions},{projections}), sort, limit
+// Esta es una funcion base
 const find = async ({
   conditions = {},
   projection = {},
@@ -26,6 +27,17 @@ const find = async ({
   }
 };
 
+//Función busqueda por fecha
+const findByDate = (start, end) =>
+  find({
+    conditions: {
+      date: {
+        $gte: new Date(start),
+        $lte: new Date(end),
+      },
+    },
+  });
+
 //función last
 const last = () => find({ sort: { _id: -1 }, limit: 1 });
 
@@ -33,4 +45,4 @@ const last = () => find({ sort: { _id: -1 }, limit: 1 });
 const all = () => find({});
 
 //el modelo lo vamos a consumir dentro del controller
-module.exports = { all, last, create };
+module.exports = { findByDate, all, last, create };
