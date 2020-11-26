@@ -2,13 +2,19 @@ npm i mongodb
 npm i jsonwebtoken
 npm i sha1
 npm i dotenv
-npm i @hapi/joi
+
+
 npm i forever -g
 npm i artillery
-
 
 carpetas a crear
 utils
 models
 schemas
 middlewares
+
+generacion de claves privadas y publicas
+
+Validaciones:
+  schemas
+  middlewares
