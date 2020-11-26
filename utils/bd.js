@@ -4,9 +4,9 @@ const MongoClient = require("mongodb").MongoClient;
 // Pool función referencia al inicio de la conexión
 const pool = async () => {
   try {
-    return (await MongoClient.connect("mongodb://localhost:27017")).db(
-      "partidos"
-    );
+    return (
+      await MongoClient.connect(`${process.env.DB_HOST}:${process.env.DB_PORT}`)
+    ).db("partidos");
   } catch (e) {
     /*se usa console.error porque es lo que 
       se va a ver en la consola de nodemon

@@ -5,6 +5,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 const { secured } = require("./middlewares/auth");
 
 //requerimos el archivo de routes partidos.js
